@@ -1,0 +1,58 @@
+Scene UI:
+	-Noninteractable divders
+	-GuiText elements?
+		-Appear when called in code
+		
+		-Three columns of text
+			-1st Column
+				-"Please read the text below very carefully."
+				-randomly selected articles
+			-2nd Column
+				-"Compare the text below to what you read in the first column."
+				-assuming a randomly selected paraphrase, summary, or direct quote
+				-No unrelated answers
+			-3rd Column
+				-"Was the second column a paraphrase, summary, or direct quote of 
+				 the first column?"
+				-Enter P, S, or Q: to answer:
+				-Text should appear showing user input after?
+				-If the user answer's correctly:
+				 "Correct. You have been authenticated as a student of information
+				 literacy. Room access granted,"
+				-If the user answer's incorrectly:
+				 "I'm sorry, but that answer is incorrect. You will now be connected
+				 with the Library HelpDesk.
+				 
+		-Library HelpDesk:
+			-"Welcome to the Library HelpDesk. The correct answer was [...]. Please
+			 review the following information about [...].
+			 	-Paraphrase explanation, if paraphrase
+			 	-Summary explanation, if summary
+			 	-direct quote explanation, if direct quote
+			-"You may now review additional information or retry the room
+			 authentication process. Enter "P" for information about paraphrasing,
+			 "S" for summary, or "Q for direct quote, followed by the Enter key.
+			 Press any other key or Enter alone to exit and retry.
+			-P, S, Q, or Enter:	
+				-Info based on keypress.	
+		
+Game Elements:
+	-From the sketch and the information listed above, all the game elements will
+	probably use Unity's text element. This, of course, does not include the
+	background, which I'll probably draw up myself.
+	
+	-No buttons involved, but keypresses will be used to operate the game when
+	 appropriate.
+	 	- if (Input.GetKeyDown("Return")) {;}
+	 	- if (Input.GetKeyDown("P")) {;}
+	 	- if (Input.GetKeyDown("S")) {;}
+	 	- if (Input.GetKeyDown("Q")) {;}
+	 	
+		-Distinguish between P, S, and Q answers
+			-Paraphrase List?
+			-Summary List?
+			-Quote List?
+			
+		-A list of articles
+			-each article contains its own list of three items
+				-P, S, and Q.		
