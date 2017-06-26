@@ -226,7 +226,7 @@ public class ArticlesMinigameController : MonoBehaviour {
 		else 
 		{
 			answerText.GetComponent<Text>().text = (answerText.GetComponent<Text>().text + "\n\n\nI'm sorry, but that" +
-				" answer is incorrect. You will now be connected with the Library HelpDesk. Please Wait...");
+				" answer is incorrect. You will now be connected with the Library Help Desk. Please Wait...");
 			StartCoroutine(HelpDesk ());
 		}
 	}
