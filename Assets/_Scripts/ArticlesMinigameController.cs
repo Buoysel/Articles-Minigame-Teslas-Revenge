@@ -12,6 +12,7 @@ public class ArticlesMinigameController : MonoBehaviour {
 	public int answer;				//User picked answer
 
 	public bool allowInput = false; //Prevent input before the timers end.
+    public bool gameFinished = false; //Flag to allow exit input.
 
 	public int randArt;				//Random article.
 	public int randAns;			 	//Random answer.
@@ -121,7 +122,7 @@ public class ArticlesMinigameController : MonoBehaviour {
 	void Update()
 	{
 		//Get the user's answer
-		if (allowInput == true)
+		if (allowInput)
 		{
 			if (Input.GetKeyDown (KeyCode.P))
 			{
@@ -156,6 +157,13 @@ public class ArticlesMinigameController : MonoBehaviour {
 				}
 			}
 		}
+        else if (gameFinished)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            else if (Input.GetKeyDown(KeyCode.E))
+                Application.Quit();
+        }
 	}
 
 	void ShowArticle(int randArt)
@@ -210,10 +218,10 @@ public class ArticlesMinigameController : MonoBehaviour {
 		if (answer == randAns)
 		{
 			answerText.GetComponent<Text> ().text = (answerText.GetComponent<Text> ().text + "\n\n\nCorrect. You have been" +
-			" authenticated as a student of information literacy. Room access granted.");
+			" authenticated as a student of information literacy. Room access granted.\n\n\nPress 'R' to restart the game, or press 'E' to end the game.");
 
-			//End the game
-			StartCoroutine (QuitGame ());
+            allowInput = false;
+            gameFinished = true;
 		}
 		else 
 		{
@@ -273,14 +281,6 @@ public class ArticlesMinigameController : MonoBehaviour {
 
 		helpText.text = helpText.text + "\n\n" + "Press P, S, Q, or Enter:";
 		allowInput = true;
-	}
-
-	IEnumerator QuitGame()
-	{
-		//End the game, though this should send the player back to their spot in the main game.
-		allowInput = false;
-		yield return new WaitForSeconds (waitTime);
-//		EditorApplication.isPlaying = false;
 	}
 
 	void SetPQSInfo()
